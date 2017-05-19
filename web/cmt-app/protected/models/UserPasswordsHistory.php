@@ -43,11 +43,14 @@ class UserPasswordsHistory extends CActiveRecord
         return parent::model($className);
     }
 
+    /**
+     * @return int
+     */
     public function getPasswordsCount()
     {
         $criteria = new CDbCriteria();
         $criteria->compare('user_id', $this->user_id);
-        return $this->count($criteria);
+        return (int) $this->count($criteria);
     }
 
     /**
